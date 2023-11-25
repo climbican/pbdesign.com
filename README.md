@@ -18,3 +18,8 @@ Click Create basic task, choose When I logon trigger and then choose Start a pro
 Check Open properties dialog option and click Finish. In task properties click Triggers, 
 then click New and add new trigger Repeat task every 1 minute
 ```
+### Basic package to install for laravel
+```text
+sudo apt install openssl php-bcmath php-curl php-json php-mbstring php-mysql php-tokenizer php-xml php-zip
+
+```

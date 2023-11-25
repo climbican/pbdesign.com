@@ -246,6 +246,7 @@
     let weatherURL = 'https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid=6224ec3c71f49cd08cf354231cae33fb';
     let testData  = {};
     let seriesData = [];
+    var option = {};
     let xAxisData = [];
     let v = null;
     let totalDaily = 0;
@@ -286,8 +287,7 @@
                 generatedToday_view.innerHTML = yieldTodayTxt + " W";
 
                 hourlyProductionChartOption.dataset.source = testData['999'];
-
-                //let app = {};
+                option.xAxis[0].data = xAxisData;
 
                 if (option && typeof option === 'object') {
                     dailyYieldChart.setOption(option);
@@ -300,9 +300,12 @@
 
     // RUN THE FETCH THEN WAIT AND RUN EVERY 9 MINUTES
     fetchLogsFromServer();
-    setTimeout(function(){
+    var i=0;
+    setInterval(()=>{
+        console.log('ran the script ' + i)
         fetchLogsFromServer();
-    }, 15*60*1000)
+        i++;
+    }, 9*60*1000)
 
     /**
      * DAILY PRODUCTION DATA FOR THIS MONTH
@@ -313,7 +316,7 @@
         useDirtyRect: false
     });
 
-    let option = {
+    option = {
         tooltip: {
             trigger: 'axis',
             axisPointer: {
@@ -365,8 +368,6 @@
      */
     /** hourly chart */
     let hourlyProductionChart = echarts.init(document.getElementById('hourly-production'));
-
-
 
     var hourlyProductionChartOption = {
         legend: {},
