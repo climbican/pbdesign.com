@@ -4,6 +4,8 @@
  * setcookie("TestCookie", $value, time()+3600);
  *
  * $_COOKIE['TestCookie'];
+ *
+ * TODO: WRINT CRON JOB AND START IT AND CHECK THE JSON FILE
  */
 namespace App\Http\Controllers;
 
@@ -165,7 +167,6 @@ class SolarLogStatsController extends Controller
         catch(Exception $e){
             return json_encode(['message'=>'there was an issue']);
         }
-
     }
 
     public function run_logcheck(): string{
@@ -215,7 +216,7 @@ class SolarLogStatsController extends Controller
     }
 
 
-    private function add_hourly_stats_data(string $value_to_add){
+    private function add_hourly_stats_data(int $value_to_add){
         $data = $this->read();
         // this is where the hour and midnight logic goes
 
@@ -228,15 +229,15 @@ class SolarLogStatsController extends Controller
         if(substr($data['lastTimeRetrieved'], 11,2) !== substr($this->createISOTimestamp(), 11,2)){
             // need to subtract last item from current daily total to get the hourly production
             $v = end($data['data']);
-            $value_to_add -= $v;
+            // need to check what value to add is
+
+            $value_to_add -= $v[1];
             $data['data'][] = [$this->createISOTimestamp(), (int)$value_to_add];
         }
 
         $this->write($data['data']);
     }
 
-
-    // put write login in here.
     private function write(array $data=[]): void{
         // here is the issue
         $h = Storage::disk('public')->get('full_stats.json');
