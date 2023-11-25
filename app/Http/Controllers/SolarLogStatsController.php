@@ -5,7 +5,7 @@
  *
  * $_COOKIE['TestCookie'];
  *
- * TODO: WRINT CRON JOB AND START IT AND CHECK THE JSON FILE
+ * TODO: WRITE CRON JOB AND START IT AND CHECK THE JSON FILE
  */
 namespace App\Http\Controllers;
 
