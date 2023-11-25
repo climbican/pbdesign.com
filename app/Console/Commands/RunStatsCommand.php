@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Controllers\SolarLogStatsController;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class RunStatsCommand extends Command
 {
@@ -26,6 +27,7 @@ class RunStatsCommand extends Command
      */
     public function handle()
     {
+        Log::info('Ran cron job');
         $s = new SolarLogStatsController();
         $s->run_logcheck();
     }
