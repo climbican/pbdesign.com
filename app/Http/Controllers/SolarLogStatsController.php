@@ -248,6 +248,9 @@ class SolarLogStatsController extends Controller
                     $v_final = $value_to_add - $v[1];
                 }
             }
+            else{
+                $v_final = $value_to_add;
+            }
 
             $data['data'][] = [$this->createISOTimestamp(), (int)$v_final];
         }
