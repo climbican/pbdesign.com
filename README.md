@@ -2,7 +2,7 @@
 ```text
 On Linux type > crontab -e
 > change path-to-your-project to where it lives on the server, absolute path.
-* * * * * cd /path-to-your-project  && php artisan schedule:run >> /dev/null 2>&1
+* * * * * cd /var/www/html  && php artisan schedule:run >> /dev/null 2>&1
 ```
 ### To run task on Windows
 ```text

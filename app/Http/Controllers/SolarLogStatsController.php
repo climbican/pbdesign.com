@@ -124,7 +124,7 @@ class SolarLogStatsController extends Controller
     }
 
     private function fetch_logs(string $command_set='', string $token='oCkwrj2aqHt9JaWchVCN5ZlQeoQHcbQwLG0GsFjiyPg%3D', bool $debug=false){
-        try {
+        //try {
             $headers = [
                 'Accept' => '*/*',
                 'Accept-Encoding' => 'gzip, deflate',
@@ -163,10 +163,10 @@ class SolarLogStatsController extends Controller
             unset($data[447]);
 
             return json_encode($data);
-        }
+        /**}
         catch(Exception $e){
             return json_encode(['message'=>'there was an issue']);
-        }
+        }**/
     }
 
     public function run_logcheck(): string{
@@ -215,9 +215,13 @@ class SolarLogStatsController extends Controller
         }**/
     }
 
-
-    private function add_hourly_stats_data(int $value_to_add){
+    /**
+     * @param int $value_to_add
+     * @return void
+     */
+    private function add_hourly_stats_data(int $value_to_add): void{
         $data = $this->read();
+        $va = 0;
         // this is where the hour and midnight logic goes
 
         $s = substr($data['lastTimeRetrieved'], 11,2);
@@ -228,10 +232,11 @@ class SolarLogStatsController extends Controller
 
         if(substr($data['lastTimeRetrieved'], 11,2) !== substr($this->createISOTimestamp(), 11,2)){
             // need to subtract last item from current daily total to get the hourly production
-            $v = end($data['data']);
-            // need to check what value to add is
+            if(count($data['data']) > 0){
+                $v = end($data['data']);
+                $value_to_add -= $v[1];
+            }
 
-            $value_to_add -= $v[1];
             $data['data'][] = [$this->createISOTimestamp(), (int)$value_to_add];
         }
 
