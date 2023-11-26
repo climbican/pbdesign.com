@@ -232,12 +232,24 @@ class SolarLogStatsController extends Controller
 
         if(substr($data['lastTimeRetrieved'], 11,2) !== substr($this->createISOTimestamp(), 11,2)){
             // need to subtract last item from current daily total to get the hourly production
-            if(count($data['data']) > 0){
+            $num_elements = count($data['data']);
+
+            if($num_elements > 0){
                 $v = end($data['data']);
-                $value_to_add -= $v[1];
+                //$value_to_add -= $v[1];
+                $sum = 0; // this is the sum to subtract
+                if($num_elements > 1){
+                    foreach($data['data'] as $c){
+                        $sum += $c[1];
+                    }
+                    $v_final = $value_to_add - $sum;
+                }
+                else{
+                    $v_final = $value_to_add - $v[1];
+                }
             }
 
-            $data['data'][] = [$this->createISOTimestamp(), (int)$value_to_add];
+            $data['data'][] = [$this->createISOTimestamp(), (int)$v_final];
         }
 
         $this->write($data['data']);
