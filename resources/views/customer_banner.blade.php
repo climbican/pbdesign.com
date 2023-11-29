@@ -60,7 +60,7 @@
     Note: If there is a font type that you want to use please let me know and I will make the change.
 </div>
 <div class="footer" id="footerDiv">
-    <div id="imgcontainer"><img src="https://ldgc1.ledgedog.com/assets/img/pb-design-logo.png"/></div>
+    <div id="imgcontainer"><img src="{{url('assets/img/pb-design-logo.png')}}"/></div>
     <marquee scrollamount="10">
         <h1 id="welcomeMessageDiv">Welcome Message</h1>
     </marquee>

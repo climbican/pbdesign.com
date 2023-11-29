@@ -1,3 +1,11 @@
+### BASIC NOTES ON HOW TO USE
+```text
+Remember this requires that a cron job or scheduled event is implemented on the server.  This is required because there are NO hourly stats available on the hardware
+so it wa necessary to write a scheduled job / event that would run every nine minutes to get the stats after the full hour and create an array object.
+
+!!IMPORTANT, THE ARRAY FOR HOURLY STATS IS WIPED CLEAR AT MIDNIGHT SO THAT ONLY THE PRESENT DAYS STATS WILL BE AVAILABLE.
+```
+
 ## To run scheduled commands
 ```text
 On Linux type > crontab -e

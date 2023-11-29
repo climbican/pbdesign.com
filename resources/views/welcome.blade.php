@@ -24,6 +24,7 @@
     <script defer src="https://api.forecast.solar/chart/init.js"></script>
     <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
     <script src="assets/libs/axios/axios.min.js"></script>
+    <link href="{{asset('assets/css/banner_style.css')}}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <!-- Begin page -->
@@ -184,7 +185,7 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Production estimate East today</h4>
+                            <h4 class="card-title mb-0">Production estimate for today</h4>
                         </div>
                         <div class="card-body">
                             <div style="text-align:center">
@@ -231,7 +232,12 @@
     <!-- container-fluid -->
 </div>
 <!-- end main content-->
-
+<div class="footer" id="footerDiv">
+    <div id="imgcontainer"><img src="{{url('assets/img/pb-design-logo.png')}}"/></div>
+    <marquee scrollamount="10">
+        <h1 id="welcomeMessageDiv">Welcome Message</h1>
+    </marquee>
+</div>
 </div>
 <!-- END layout-wrapper -->
 <!-- JAVASCRIPT -->
@@ -248,5 +254,8 @@
 <!-- App js -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="{{asset('assets/js/weather-map.init.js')}}"></script>
+<!-- BANNER CODE -- FIRST LINE IS TO GENERATE THE URL FOR THE AUTH CODE -->
+<script>var getAuthCodeURL = '{{url('get/auth/code')}}'</script>
+<script src="{{asset('assets/js/banner_init.js')}}"></script>
 </body>
 </html>
