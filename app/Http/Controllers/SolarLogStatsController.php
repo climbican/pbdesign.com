@@ -123,7 +123,7 @@ class SolarLogStatsController extends Controller
     }
 
     private function fetch_logs(string $command_set='', string $token='oCkwrj2aqHt9JaWchVCN5ZlQeoQHcbQwLG0GsFjiyPg%3D', bool $debug=false){
-        //try {
+        try {
             $headers = [
                 'Accept' => '*/*',
                 'Accept-Encoding' => 'gzip, deflate',
@@ -154,18 +154,22 @@ class SolarLogStatsController extends Controller
             //$this->raw_data = json_decode($data[0], true);
 
             $data = json_decode($data[0], true);
+            $hourly_amt = 0;
+            if($data['801']['170']['105'] > 0){
+                $hourly_amt = $data['801']['170']['105'] / 1000;
+            }
 
-            $this->add_hourly_stats_data($data['801']['170']['105'] / 1000);
+            $this->add_hourly_stats_data($hourly_amt);
 
             $r = $this->read();
             $data[999] = $r['data'];
             unset($data[447]);
 
             return json_encode($data);
-        /**}
+        }
         catch(Exception $e){
             return json_encode(['message'=>'there was an issue']);
-        }**/
+        }
     }
 
     public function run_logcheck(): string{
@@ -220,9 +224,7 @@ class SolarLogStatsController extends Controller
      */
     private function add_hourly_stats_data(int $value_to_add): void{
         $data = $this->read();
-        $va = 0;
         // this is where the hour and midnight logic goes
-
         $s = substr($data['lastTimeRetrieved'], 11,2);
 
         if($s === "00"){
@@ -241,10 +243,12 @@ class SolarLogStatsController extends Controller
                     foreach($data['data'] as $c){
                         $sum += $c[1];
                     }
+                }
+                if($value_to_add > $sum){
                     $v_final = $value_to_add - $sum;
                 }
                 else{
-                    $v_final = $value_to_add - $v[1];
+                    $v_final = 0;
                 }
             }
             else{

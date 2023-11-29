@@ -28,7 +28,7 @@ function fetchLogsFromServer(){
                     totalDaily  += n;
                 });
                 seriesData.push(totalDaily/1000);
-            });
+            }); console.log('in teh response');
             /** top bar stats **/
             yieldCurrentMonth_view.innerHTML = new Intl.NumberFormat().format(Math.round(testData['801']['170']['107']/1000)) + " KW";
 
@@ -37,9 +37,9 @@ function fetchLogsFromServer(){
             //yieldYTDTime_view.innerHTML = testData['801']['170']['100'].replace(' ', '<br>'); // future feature
 
             /** generated today **/
-            let yieldTodayTxt = new Intl.NumberFormat().format(Math.round(testData['801']['170']['105']));
-            yieldToday = yieldTodayTxt;
-            generatedToday_view.innerHTML = (yieldTodayTxt / 1000) + " KW";
+            yieldToday = new Intl.NumberFormat().format(Math.round((testData['801']['170']['105'] / 1000)));
+            console.log('today\'s data' + testData['801']['170']['105']);
+            generatedToday_view.innerHTML = yieldToday + "KW";
 
             hourlyProductionChartOption.dataset.source = testData['999'];
             option.xAxis[0].data = xAxisData;

@@ -19,4 +19,4 @@ Route::get('site/chart',function(){
 // used to fetch logs from the solarlog hardware
 Route::get('fetch/logs', [App\Http\Controllers\SolarLogStatsController::class, 'run_logcheck']);
 // route to fetch calendar events, this also available as a static file in the controllers folder
-Route::get('get/auth/code', [App\Http\Controllers\FetchCalendarEventController::class, 'get_auth_code']);
+Route::post('get/auth/code', [App\Http\Controllers\FetchCalendarEventController::class, 'get_auth_code']);
