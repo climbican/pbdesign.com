@@ -24,7 +24,7 @@
     <script defer src="https://api.forecast.solar/chart/init.js"></script>
     <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
     <script src="assets/libs/axios/axios.min.js"></script>
-    <link href="{{asset('assets/css/banner_style.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('assets/css/banner_styles.css')}}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <!-- Begin page -->
@@ -59,7 +59,7 @@
     <div class="main-content">
 
         <div class="container-fluid p-2">
-            <div class="row">
+            <div class="row" style="height:16% !important;">
                 <!--- FIRST CHART --->
                 <div class="col-3">
                     <div class="card card-animate overflow-hidden">
@@ -169,7 +169,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+
+            <div class="row" style="height:36% !important;">
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
@@ -198,8 +199,7 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
-
-            <div class="row">
+            <div class="row"  style="height:36% !important;">
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
@@ -216,7 +216,7 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Hourly Production</h4>
+                            <h4 class="card-title mb-0">Hourly Production in KW</h4>
                         </div>
                         <div class="card-body">
                             <div id="hourly-production" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' class="e-charts"></div>

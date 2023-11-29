@@ -155,7 +155,7 @@ class SolarLogStatsController extends Controller
 
             $data = json_decode($data[0], true);
 
-            $this->add_hourly_stats_data($data['801']['170']['105']);
+            $this->add_hourly_stats_data($data['801']['170']['105'] / 1000);
 
             $r = $this->read();
             $data[999] = $r['data'];

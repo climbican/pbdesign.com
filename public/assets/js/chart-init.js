@@ -39,7 +39,7 @@ function fetchLogsFromServer(){
             /** generated today **/
             let yieldTodayTxt = new Intl.NumberFormat().format(Math.round(testData['801']['170']['105']));
             yieldToday = yieldTodayTxt;
-            generatedToday_view.innerHTML = yieldTodayTxt + " W";
+            generatedToday_view.innerHTML = (yieldTodayTxt / 1000) + " KW";
 
             hourlyProductionChartOption.dataset.source = testData['999'];
             option.xAxis[0].data = xAxisData;
