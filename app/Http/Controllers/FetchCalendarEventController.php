@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Log;
 class FetchCalendarEventController extends Controller
 {
     public function get_auth_code(Request $request){
-        if(!$_REQUEST['app_id'] === 'b3eca716-1757-4bdf-8169-c34900322fe893') exit();
+        if(!$request->app_id === 'b3eca716-1757-4bdf-8169-c34900322fe893') exit();
 
         $_APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
         $_CERTIFICATE_VALUE = 'NB88Q~EcgDWdZu3NeIuzzhlnyT_E91TCkLn0Gc-3';
