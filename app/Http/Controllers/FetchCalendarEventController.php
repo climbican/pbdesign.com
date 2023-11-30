@@ -52,7 +52,7 @@ class FetchCalendarEventController extends Controller
 
         //print_r($out);
 
-        Log::info('data return of the key:: ' . print_r($server_output, true));
+        //Log::info('data return of the key:: ' . print_r($server_output, true));
 
 
         return $server_output;
