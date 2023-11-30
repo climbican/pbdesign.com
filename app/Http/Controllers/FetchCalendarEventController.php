@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 class FetchCalendarEventController extends Controller
 {
-    public function get_auth_code(){
+    public function get_auth_code(Request $request){
+        print_r($request->app_id); exit();
         if(!$_REQUEST['app_id'] === 'b3eca716-1757-4bdf-8169-c34900322fe893') exit();
 
         $_APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
