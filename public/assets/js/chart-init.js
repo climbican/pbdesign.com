@@ -28,7 +28,8 @@ function fetchLogsFromServer(){
                     totalDaily  += n;
                 });
                 seriesData.push(totalDaily/1000);
-            }); console.log('in teh response');
+            });
+            //console.log('in teh response');
             /** top bar stats **/
             yieldCurrentMonth_view.innerHTML = new Intl.NumberFormat().format(Math.round(testData['801']['170']['107']/1000)) + " KW";
 
@@ -38,7 +39,7 @@ function fetchLogsFromServer(){
 
             /** generated today **/
             yieldToday = new Intl.NumberFormat().format(Math.round((testData['801']['170']['105'] / 1000)));
-            console.log('today\'s data' + testData['801']['170']['105']);
+            //console.log('today\'s data' + testData['801']['170']['105']);
             generatedToday_view.innerHTML = yieldToday + "KW";
 
             hourlyProductionChartOption.dataset.source = testData['999'];
@@ -57,7 +58,7 @@ function fetchLogsFromServer(){
 fetchLogsFromServer();
 var i=0;
 setInterval(()=>{
-    console.log('ran the script ' + i)
+    //console.log('ran the script ' + i)
     fetchLogsFromServer();
     i++;
 }, 9*60*1000)

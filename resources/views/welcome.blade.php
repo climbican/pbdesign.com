@@ -258,7 +258,7 @@
 <!-- TODO: LEFT OFF HERE ... GET AUTH CODE IS FORKED UP AND RETURNS AN ERROR -->
 <script>
     var getAuthCodeURL = '{{url('api/get/auth/code')}}';
-    var appId = env('APPLICATION_ID')
+    var appId = "{{env('APPLICATION_ID')}}"
 </script>
 <script src="{{asset('assets/js/banner_init.js')}}"></script>
 </body>
