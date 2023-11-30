@@ -49,6 +49,8 @@ class FetchCalendarEventController extends Controller
 
         $out = "cUrl verbose information:\n". "<pre>" . htmlspecialchars($verboseLog). "</pre>\n";
 
+        //print_r($out);
+
 
         return $server_output;
     }

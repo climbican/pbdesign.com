@@ -23,7 +23,8 @@ function getNewToken(callback){
     let xhr = new XMLHttpRequest();
 
     var data = new FormData();
-    data.append('app_id', _APPLICATION_ID);
+    console.log('app id ' + appId);
+    data.append('app_id', appId);
     //fetch token
     // url is on parent page
     xhr.open('POST', getAuthCodeURL);

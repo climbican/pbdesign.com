@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
+Route::post('get/auth/code', [App\Http\Controllers\FetchCalendarEventController::class, 'get_auth_code']);
+
+/**Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+});**/

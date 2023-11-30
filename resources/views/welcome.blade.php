@@ -255,7 +255,11 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="{{asset('assets/js/weather-map.init.js')}}"></script>
 <!-- BANNER CODE -- FIRST LINE IS TO GENERATE THE URL FOR THE AUTH CODE -->
-<script>var getAuthCodeURL = '{{url('get/auth/code')}}'</script>
+<!-- TODO: LEFT OFF HERE ... GET AUTH CODE IS FORKED UP AND RETURNS AN ERROR -->
+<script>
+    var getAuthCodeURL = '{{url('api/get/auth/code')}}';
+    var appId = env('APPLICATION_ID')
+</script>
 <script src="{{asset('assets/js/banner_init.js')}}"></script>
 </body>
 </html>
