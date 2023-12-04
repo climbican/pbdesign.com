@@ -19,3 +19,8 @@ Route::get('site/chart',function(){
 // used to fetch logs from the solarlog hardware
 Route::get('fetch/logs', [App\Http\Controllers\SolarLogStatsController::class, 'run_logcheck']);
 // route to fetch calendar events, this also available as a static file in the controllers folder
+
+// this is a test route for static layout
+Route::get('test/static', function(){
+    return view('static');
+});

@@ -23,42 +23,24 @@
     <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css"/>
     <script defer src="https://api.forecast.solar/chart/init.js"></script>
     <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet"/>
-    <script src="assets/libs/axios/axios.min.js"></script>
+    <script src="{{asset('assets/libs/axios/axios.min.js')}}"></script>
     <link href="{{asset('assets/css/banner_styles.css')}}" rel="stylesheet" type="text/css"/>
+    <style>
+        .main-container {
+            height: 100vh;
+            width: 100vw;
+            border:dashed darkgreen 3px;
+        }
+    </style>
 </head>
 <body>
 <!-- Begin page -->
-<div id="layout-wrapper">
+<div class="main-container">
     <!-- removeNotificationModal -->
-    <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="NotificationModalbtn-close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mt-2 text-center">
-                        <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                            <h4>There was an issue.</h4>
-                            <p class="text-muted mx-4 mb-0">Please contact admin or developer of this page</p>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                        <button type="button" class="btn w-sm btn-danger" id="delete-notification">Close</button>
-                    </div>
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-    <div class="main-content">
 
-        <div class="container-fluid p-2">
             <div class="row" style="height:16% !important;">
                 <!--- FIRST CHART --->
                 <div class="col-3">
@@ -170,8 +152,8 @@
                 </div>
             </div>
 
-            <div class="row" style="height:36% !important;">
-                <div class="col-xl-6">
+            <div style="height:36% !important;border:yellow solid 3px;">
+                <div style="width:48%;float:left;">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Weather</h4>
@@ -183,7 +165,7 @@
                     <!-- end card -->
                 </div>
                 <!-- end col -->
-                <div class="col-xl-6">
+                <div style="width:48%;float:left;">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Production estimate for today</h4>
@@ -199,8 +181,8 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
-            <div class="row"  style="height:36% !important;">
-                <div class="col-xl-6">
+            <div  style="height:36% !important;border:purple solid 3px;">
+                <div style="width:48%;float:left;">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Daily Production by month / day</h4>
@@ -213,7 +195,7 @@
                 </div>
 
                 <!-- end col -->
-                <div class="col-xl-6">
+                <div style="width:48%;float:left;">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Hourly Production in KW</h4>
@@ -227,9 +209,8 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
-        </div>
-    </div>
-    <!-- container-fluid -->
+
+
 </div>
 <!-- end main content-->
 <div class="footer" id="footerDiv">
@@ -239,7 +220,6 @@
     </marquee>
 </div>
 </div>
-<div style="bottom: 0;left:0;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
 <!-- END layout-wrapper -->
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

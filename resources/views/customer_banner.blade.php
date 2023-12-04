@@ -6,9 +6,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
+    <link rel="apple-touch-icon" href="{{url('assets/img/favicon.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ URL::asset('assets/img/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 
     <meta name="theme-color" content="#fafafa">
@@ -65,6 +64,7 @@
         <h1 id="welcomeMessageDiv">Welcome Message</h1>
     </marquee>
 </div>
+<div style="bottom: 0;left:0;position:absolute;z-index: 1000;"><img src="{{URL::asset('assets/img/pb-design-logo.png'}}" height="70px"/> </div>
 
 <script>
     let messageDiv = document.getElementById('welcomeMessageDiv');
