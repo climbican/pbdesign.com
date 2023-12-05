@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\Log;
 class FetchCalendarEventController extends Controller
 {
     public function get_auth_code(Request $request){
-        if(!$request->app_id === 'b3eca716-1757-4bdf-8169-c34900322fe893') exit();
+        if(!$request->app_id === env('APPLICATION_ID')) exit(); // same as below
 
-        $_APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
-        $_CERTIFICATE_VALUE = 'NB88Q~EcgDWdZu3NeIuzzhlnyT_E91TCkLn0Gc-3';
-        $_TENANT_ID = 'af2ad4a6-0eff-4044-9f9c-bb0af98437ce';
+                                                            // THESE ARE HERE IN CASE SOMETHING DOESN'T WORK OUT.
+        $_APPLICATION_ID = env('APPLICATION_ID');       // 'b3eca716-1757-4bdf-8169-c3490f04e893';
+        $_CERTIFICATE_VALUE = env('CERTIFICATE_VALUE'); //'NB88Q~EcgDWdZu3NeIuzzhlnyT_E91TCkLn0Gc-3';
+        $_TENANT_ID = env('TENANT_ID');                 //'af2ad4a6-0eff-4044-9f9c-bb0af98437ce';
         $fields_string = '';
 
         $vars = ['client_id' => urlencode($_APPLICATION_ID), 'scope'=>urlencode('https://graph.microsoft.com/.default'),
