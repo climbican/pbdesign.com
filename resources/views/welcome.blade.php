@@ -28,7 +28,7 @@
 </head>
 <body>
 <!-- Begin page -->
-<div id="layout-wrapper">
+<div id="layout-wrapper" style="position:absolute;top:0;left:0;margin:0;padding:0;height:99.8vh;width:99.8vw;">
     <!-- removeNotificationModal -->
     <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
