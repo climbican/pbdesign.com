@@ -57,8 +57,7 @@
     <!-- Start right Content here -->
     <!-- ============================================================== -->
     <div class="main-content">
-
-        <div class="container-fluid p-2">
+        <div class="container-fluid p-2" style="height:100%;">
             <div class="row" style="height:16% !important;">
                 <!--- FIRST CHART --->
                 <div class="col-3">
@@ -169,27 +168,28 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row" style="height:36% !important;">
-                <div class="col-xl-6">
+            <!-- THIS IS THE TWO ROWS OF CHARTS -->
+            <!-- ROW ONE IS WEATHER & PRODUCTION -->
+            <div class="row">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Weather</h4>
                         </div>
                         <div class="card-body">
-                            <div id="mapFrame" style="height:400px;"></div>
+                            <div id="mapFrame" class="changeMe"></div>
                         </div>
                     </div>
                     <!-- end card -->
                 </div>
                 <!-- end col -->
-                <div class="col-xl-6">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Production estimate for today</h4>
                         </div>
                         <div class="card-body">
-                            <div style="text-align:center">
+                            <div class="changeMe" style="text-align:center;">
                                 <script defer src="https://api.forecast.solar/chart/5309117d.js"></script>
                             </div>
                         </div>
@@ -199,27 +199,29 @@
                 <!-- end col -->
             </div>
             <!-- end row -->
-            <div class="row"  style="height:36% !important;">
-                <div class="col-xl-6">
+            <!-- THIS IS THE TWO ROWS OF CHARTS -->
+            <!-- ROW TWO IS DAILY AND HOURLY PRODUCTION -->
+            <div class="row">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Daily Production by month / day</h4>
                         </div>
                         <div class="card-body">
-                            <div id="daily-production" data-colors='["--vz-success"]' class="e-charts"></div>
+                            <div id="daily-production" data-colors='["--vz-success"]' class="e-charts changeMe"></div>
                         </div>
                     </div>
                     <!-- end card -->
                 </div>
 
                 <!-- end col -->
-                <div class="col-xl-6">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title mb-0">Hourly Production in KW</h4>
                         </div>
                         <div class="card-body">
-                            <div id="hourly-production" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' class="e-charts"></div>
+                            <div id="hourly-production" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' class="e-charts changeMe"></div>
                         </div>
                     </div>
                     <!-- end card -->
@@ -239,7 +241,7 @@
     </marquee>
 </div>
 </div>
-<div style="bottom: 0;left:0;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
+<div style="bottom: 3px;left:3px;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
 <!-- END layout-wrapper -->
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -249,6 +251,26 @@
 
 <!-- echarts js -->
 <script src="{{asset('assets/libs/echarts/dist/echarts.min.js')}}"></script>
+<script>
+    function resizeElementHeight() {
+        let height = 0;
+        let body = window.document.body;
+
+        if (window.innerHeight) {
+            height = window.innerHeight;
+        } else if (body.parentElement.clientHeight) {
+            height = body.parentElement.clientHeight;
+        } else if (body && body.clientHeight) {
+            height = body.clientHeight;
+        }
+        document.querySelectorAll('.changeMe').forEach(el => {
+            let width = height * 0.33;
+            el.style.height = width.toString() + "px";
+        });
+    }
+
+    resizeElementHeight();
+</script>
 <!-- CHART FETCH AND INIT SCRIPTS -->
 <script>var fetchURL = '{{url('fetch/logs')}}';</script>
 <script src="{{asset('assets/js/chart-init.js')}}"></script>
