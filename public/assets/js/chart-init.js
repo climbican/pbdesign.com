@@ -14,6 +14,7 @@ let d = new Date();
 var yieldTodayDate = d.toISOString(); /// d.valueOf()      //=> 1586707200000
 var yieldTodayLastFetch = d.valueOf();
 var hourlyProductionChartData =  [];
+let consumedToday = document.getElementById('totalUsageToday');
 
 function fetchLogsFromServer(){
     fetch(fetchURL)
@@ -39,7 +40,7 @@ function fetchLogsFromServer(){
 
             /** generated today **/
             yieldToday = new Intl.NumberFormat().format(Math.round((testData['801']['170']['105'] / 1000)));
-            //console.log('today\'s data' + testData['801']['170']['105']);
+            console.log('today\'s data' + testData['801']['170']['105']);
             generatedToday_view.innerHTML = yieldToday + "KW";
 
             hourlyProductionChartOption.dataset.source = testData['999'];
@@ -51,6 +52,9 @@ function fetchLogsFromServer(){
             if(hourlyProductionChartOption && typeof hourlyProductionChartOption === 'object'){
                 hourlyProductionChart.setOption(hourlyProductionChartOption);
             }
+
+            consToday = new Intl.NumberFormat().format(Math.round((testData['801']['170']['111'] / 1000)));
+            consumedToday.innerHTML = consToday + "KW";
         });
 }
 
