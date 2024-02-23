@@ -1,5 +1,7 @@
 let messageDiv = document.getElementById('welcomeMessageDiv');
 let footerDiv = document.getElementById('footerDiv');
+// container for the static logo in the bottom left corner
+let staticLogo = document.getElementById('fixedLogo');
 footerDiv.style.display = 'none';
 let welcomeMessage = "Welcome to BlueYonder ";
 let companyName = "";
