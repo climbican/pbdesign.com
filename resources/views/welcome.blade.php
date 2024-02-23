@@ -241,7 +241,7 @@
     </marquee>
 </div>
 </div>
-<div style="bottom: 3px;left:3px;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
+<!--<div style="bottom: 3px;left:3px;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>-->
 <!-- END layout-wrapper -->
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
