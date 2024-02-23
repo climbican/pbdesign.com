@@ -40,7 +40,7 @@ function fetchLogsFromServer(){
 
             /** generated today **/
             yieldToday = new Intl.NumberFormat().format(Math.round((testData['801']['170']['105'] / 1000)));
-            console.log('today\'s data' + testData['801']['170']['105']);
+            //console.log('today\'s data' + testData['801']['170']['105']);
             generatedToday_view.innerHTML = yieldToday + "KW";
 
             hourlyProductionChartOption.dataset.source = testData['999'];
