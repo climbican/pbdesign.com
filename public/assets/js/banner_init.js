@@ -31,7 +31,7 @@ function getNewToken(callback){
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function () {
-        console.log('response data ' + xhr);
+        console.log('response data ' + xhr.responseText);
         if(xhr.status === 200){
             footerVisible = true;
             tokenData = JSON.parse(xhr.response);
