@@ -59,9 +59,9 @@ class PBDesignController extends Controller
 
         rewind($streamVerboseHandle);
         $verboseLog = stream_get_contents($streamVerboseHandle);
-
+        // for testing only
         $out = "cUrl verbose information:\n". "<pre>" . htmlspecialchars($verboseLog). "</pre>\n";
-        return $out;
-        //return $server_output;
+
+        return $server_output;
     }
 }
