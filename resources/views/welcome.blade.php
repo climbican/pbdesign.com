@@ -241,7 +241,7 @@
     </marquee>
 </div>-->
 <div class="marquee">
-    <h3 id="messageH3"></h3>
+    <h3 id="messageH3">Nox</h3>
 </div>
 <div style="bottom: 3px;left:3px;position:fixed;z-index: 100001;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
 <!-- END layout-wrapper -->
