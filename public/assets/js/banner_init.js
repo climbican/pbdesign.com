@@ -1,15 +1,15 @@
-let messageDiv = document.getElementById('welcomeMessageDiv');
-let footerDiv = document.getElementById('footerDiv');
+let messageH3 = document.getElementById('welcomeMessageDiv');
+//let footerDiv = document.getElementById('footerDiv');
 // container for the static logo in the bottom left corner
 let staticLogo = document.getElementById('fixedLogo');
-footerDiv.style.display = 'none';
+//footerDiv.style.display = 'none';
 let welcomeMessage = "Welcome to BlueYonder ";
 let companyName = "";
 
 // // NOTE: IF YOU WANT TO KEEP THIS EXTRA SECURE CHANGE THE APPLICATION ID
 const _APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
 
-messageDiv.innerHTML = welcomeMessage + companyName;
+welcomeMessage += companyName;
 
 let tokenData = {};
 let tokenValidUntil = 0;
@@ -84,8 +84,8 @@ function getNextCalendarEvent() {
 
             if(evData.value.length > 0){
                 //console.log('event data exists and is being set and set to visible');
-                messageDiv.innerHTML = welcomeMessage + " -- " + evData.value[0].bodyPreview + " from "  + evData.value[0].subject;
-                footerDiv.style.display = 'block';
+                messageH3.innerHTML = welcomeMessage + " -- " + evData.value[0].bodyPreview + " from "  + evData.value[0].subject;
+                //footerDiv.style.display = 'block';
                 endTimeG = evData.value[0].end.dateTime;
                 ///console.log('end time set to ' + endTimeG);
                 //console.log('the data raw ' + JSON.stringify(evData.value[0].end));
@@ -113,9 +113,9 @@ function fetchEvents(){
         if(endTimeG < nd){
             // set footerVisible to false
             endTimeG = 0;
-            messageDiv.innerHTML = '';
+            messageH3.innerHTML = '';
             footerVisible = false;
-            footerDiv.style.display = 'none';
+            //footerDiv.style.display = 'none';
         }
     }
 

@@ -234,14 +234,16 @@
     <!-- container-fluid -->
 </div>
 <!-- end main content-->
-<div class="footer" id="footerDiv">
+<!--<div class="footer" id="footerDiv">
     <div id="imgcontainer"><img src="{{url('assets/img/pb-design-logo.png')}}"/></div>
     <marquee scrollamount="10">
         <h1 id="welcomeMessageDiv">Welcome Message</h1>
     </marquee>
+</div>-->
+<div class="marquee">
+    <h3 id="messageH3"></h3>
 </div>
-</div>
-<!--<div style="bottom: 3px;left:3px;position:fixed;z-index: 1000;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>-->
+<div style="bottom: 3px;left:3px;position:fixed;z-index: 100001;" id="fixedLogo"><img src="{{URL::asset('assets/img/pb-design-logo.png')}}" height="70px"/> </div>
 <!-- END layout-wrapper -->
 <!-- JAVASCRIPT -->
 <script src="{{asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
