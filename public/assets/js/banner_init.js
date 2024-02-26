@@ -4,12 +4,9 @@ let messageH3 = document.getElementById('messageH3');
 let staticLogo = document.getElementById('fixedLogo');
 //footerDiv.style.display = 'none';
 let welcomeMessage = "Welcome to BlueYonder ";
-let companyName = "";
 
 // // NOTE: IF YOU WANT TO KEEP THIS EXTRA SECURE CHANGE THE APPLICATION ID
 const _APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
-
-welcomeMessage += companyName;
 
 let tokenData = {};
 let tokenValidUntil = 0;
