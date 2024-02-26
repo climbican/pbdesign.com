@@ -1,4 +1,4 @@
-let messageH3 = document.getElementById('welcomeMessageDiv');
+let messageH3 = document.getElementById('messageH3');
 //let footerDiv = document.getElementById('footerDiv');
 // container for the static logo in the bottom left corner
 let staticLogo = document.getElementById('fixedLogo');
