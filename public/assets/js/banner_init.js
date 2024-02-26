@@ -115,7 +115,6 @@ function fetchEvents(){
             endTimeG = 0;
             messageH3.innerHTML = '';
             footerVisible = false;
-            //footerDiv.style.display = 'none';
         }
     }
 
