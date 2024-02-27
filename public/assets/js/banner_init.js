@@ -3,7 +3,7 @@ let messageH3 = document.getElementById('messageH3');
 // container for the static logo in the bottom left corner
 let staticLogo = document.getElementById('fixedLogo');
 //footerDiv.style.display = 'none';
-let welcomeMessage = "Welcome to BlueYonder ";
+let welcomeMessage = "Welcome to PB Design ";
 
 // // NOTE: IF YOU WANT TO KEEP THIS EXTRA SECURE CHANGE THE APPLICATION ID
 const _APPLICATION_ID = 'b3eca716-1757-4bdf-8169-c3490f04e893';
@@ -54,7 +54,7 @@ function getNextCalendarEvent() {
     /*
     * THIS DEFINES THE RANGE OF TIME FROM NOW + X TO LIMIT THE NUMBER OF EVENTS THAT WILL BE QUERIED
      */
-    const numMinutesRange = 6;
+    const numMinutesRange = 11;
     let endTime = new Date( d.getTime() + (numMinutesRange*60*1000)).toISOString();
 
     // test to match microsoft date format.
